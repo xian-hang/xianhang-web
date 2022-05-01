@@ -26,7 +26,7 @@ function ResentEmail() {
             setError("Student Id is not registered yet !")
         } else if (res.status === RES_BAD_REQUEST) {
             console.log("Bad Request")
-            setError("Account is verified !")
+            setError("Email is verified !")
         } else if (res.status === RES_OK) {
             console.log("Okok")
             setSent(true)
@@ -61,17 +61,22 @@ function ResentEmail() {
                 <form className="form" onSubmit={resentEmail}>
                     <h1>Resent Verification Email</h1>
                     <hr />
-                    <Message />
+                    <div className="form-content">
+                        <Message />
 
-                    <div className="form-label">
-                        Enter your student Id :
+                        <div className="form-label">
+                            Enter your student Id :
+                        </div>
+                        <input
+                            className="form-field"
+                            placeholder="student Id"
+                            onChange={event => setStudentId(event.target.value)}
+                            required />
+                            
+                        <div className="align-center-div">
+                            <button onSubmit={resentEmail} type='submit' className='form-submit-button'>Submit</button>
+                            </div>
                     </div>
-                    <input
-                        className="form-field"
-                        placeholder="student Id"
-                        onChange={event => setStudentId(event.target.value)} />
-                    
-                    <button onSubmit={resentEmail} type='submit' className=''>Submit</button>
                 </form>
             </div>
             
