@@ -1,0 +1,136 @@
+.sign-in-layout {
+    display: flex;
+    flex-direction: row;
+}
+
+.sign-in-col-one {
+    /* border-style: solid ; */
+    /* height: 80vh; */
+    width: 100%;
+}
+
+.sign-in-col-two {
+    /* height: 80vh; */
+    min-width: 600px;
+    /* text-align: center; */
+    /* border-style: solid; */
+}
+
+.login-form {
+    margin-top: 25%;
+    margin-bottom: 25%;
+    width: 500px;
+}
+
+.sign-in-intro {
+    margin-top: 10%;
+    margin-bottom: 10%;
+    /* border-style: solid; */
+    /* border-color: red; */
+    padding: 50px;
+
+}
+
+.sign-in-logo {
+    /* border-style: solid; */
+    white-space: nowrap;
+    font-family: 'Water Brush', cursive;
+    font-size: 250px;
+}
+
+.sign-in-desc {
+    white-space: nowrap;
+    font-family: 'Libre Bodoni', serif;
+    font-size: 20px;
+}
+
+.sign-in-logo-hr {
+    margin-left: 0px;
+    width: 900px;
+    color: darkblue;
+}
+
+
+@media screen and (max-width:1700px) {
+    .sign-in-intro{
+        margin-top: 15%;
+        margin-bottom: 15%;
+    }
+
+    .sign-in-col-two{
+        min-width: 500px;
+    }
+    
+    .login-form{
+        width: 400px;
+    }
+
+    .sign-in-logo {
+        font-size: 200px;
+    }
+    
+    .sign-in-desc {
+        font-size: 18px;
+    }
+
+    .sign-in-logo-hr {
+        width: 700px;
+    }
+
+
+}
+
+@media screen and (max-width:1400px) {
+    .sign-in-intro{
+        margin-top: 20%;
+        margin-bottom: 20%;
+    }
+
+    .sign-in-col-two{
+        min-width: 400px;
+    }
+    
+    .login-form{
+        width: 300px;
+    }
+
+    .sign-in-logo {
+        font-size: 150px;
+    }
+
+    .sign-in-desc {
+        font-size: 15px;
+    }
+
+    .sign-in-logo-hr {
+        width: 500px;
+    }
+}
+
+
+@media screen and (max-width:1100px) {
+    .sign-in-intro{
+        margin-top: 25%;
+        margin-bottom: 25%;
+    }
+
+    .sign-in-col-two{
+        min-width: 300px;
+    }
+    
+    .login-form{
+        width: 200px;
+    }
+
+    .sign-in-logo {
+        font-size: 100px;
+    }
+
+    .sign-in-desc {
+        font-size: 12px;
+    }
+
+    .sign-in-logo-hr {
+        width: 350px;
+    }
+}

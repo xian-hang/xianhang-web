@@ -8,6 +8,7 @@
     position: sticky;
     top: 0;
     z-index: 999;
+    min-width: 800px;
 }
 
 .navbar-logo {
@@ -19,6 +20,5 @@
     font-size: 2rem;
     display: flex;
     align-items: center;
-    /* font-family: 'Water Brush', cursive; */
     font-family: 'Trade Winds', cursive;
 }

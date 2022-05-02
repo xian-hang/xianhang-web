@@ -24,6 +24,7 @@ class Api {
         }
     }
 
+    // email api
     async verifyEmail(token) {
         const res = await this.get(`/user/${token}/verify/`)
         return res
@@ -32,6 +33,27 @@ class Api {
     async resentEmail(studentId) {
         const res = await this.post(`/user/resent/`, {studentId})
         return res
+    }
+
+    // user api
+    async login(studentId, password) {
+        const res = await this.post(`/user/login/`, { studentId, password })
+        return res
+    }
+
+    async logout() {
+        const res = await this.post(`/user/logout/`,)
+        return res
+    }
+
+    async getReportList(status=null) {
+        if (status) {
+            const res = await this.post('/report/list/',{status})
+            return res
+        } else {
+            const res = await this.post('/report/list/')
+            return res
+        }
     }
 }
 
