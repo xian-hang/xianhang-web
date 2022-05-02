@@ -1,9 +1,27 @@
 .page-content-div {
+    /* text-align: center; */
+    padding: 20px;
+}
+
+.content-title-div {
+    text-align: center;
     padding: 20px;
 }
 
 .status-list-div {
+    text-align: center;
     /* border-style: solid; */
+}
+
+.report-list-div {
+    margin: auto;
+    max-width: 1300px;
+    width: 100%;
+    /* border-style: solid; */
+}
+
+.report-list-link {
+    text-decoration: none;
 }
 
 .status-list-button {
@@ -24,4 +42,68 @@
 
 .active {
     background-color: gainsboro;
+}
+
+.report-list-element-div {
+    display: flex;
+    /* flex-direction: column; */
+    background-color: whitesmoke;
+    margin: 20px;
+
+}
+
+.status-list-button:hover {
+    border-style: solid;
+    border-color: black;
+}
+
+.report-image-div {
+    margin: 10px;
+    width: 200px;
+    height: 200px;
+    background-color: silver;
+}
+
+.report-list-element-left-col {
+    display: flex;
+    width: 220px;
+}
+
+.report-list-element-mid-col {
+    width: 100%;
+}
+
+
+.report-list-element-right-col {
+    min-width: 300px;
+    /* border: solid; */
+    text-align: center;
+}
+
+.report-user {
+    font-size: 50px;
+    margin: 10px;
+}
+
+.report-desc {
+    font-size: 50px;
+    margin: 10px;
+}
+
+.report-status-div {
+    margin: 25% auto;
+    font-size: 50px;
+    font-family: 'Oleo Script', cursive;
+}
+
+.report-pen {
+    color: sandybrown;
+}
+
+.report-app {
+    color: rgb(114, 209, 119);
+}
+
+.report-rej {
+    color: brown;
 }

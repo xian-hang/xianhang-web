@@ -8,21 +8,12 @@ import Home from './Home';
 import SignIn from './SignIn';
 import ResetPassword from './ResetPassword';
 import ResentEmail from './ResentEmail';
+import ReportDetails from './ReportDetails'
 
 import Nav from './components/Nav';
 
 function App() {
   let id = getUserId()
-
-  const PrivateRoute = () => {
-    <Route path='/private' exact element={<Home />} />
-    
-  }
-
-  const PublicRoute = () => {
-    <Route path='/public' exact element={<SignIn />} />
-
-  }
 
   return (
       <>
@@ -30,6 +21,7 @@ function App() {
           <Nav />
           <Routes>
             {id && <Route path='/' exact element={<Home />} />}
+            {id && <Route path='/report/:id' exact element={<ReportDetails />} />}
             <Route path='/' exact element={<SignIn />} />
             <Route path='/:token/verify/' exact element={<VerifyEmail />} />
             <Route path='/reset/password/' exact element={<ResetPassword />} />

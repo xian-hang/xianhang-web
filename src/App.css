@@ -66,6 +66,11 @@
     text-align: center;
 }
 
+.button:hover {
+    cursor: pointer;
+    background-color: gray;
+}
+
 @media screen and (max-width:1100px){
     .form{
         width: 500px;

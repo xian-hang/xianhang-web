@@ -21,4 +21,23 @@
     display: flex;
     align-items: center;
     font-family: 'Trade Winds', cursive;
+    background-color: black;
+    border-style: none;
+}
+
+.nav-left-column {
+    width: 100%;
+}
+
+.nav-right-column {
+    min-width: 120px;
+}
+
+.logout-button {
+    background-color: black;
+    border-style: solid;
+    border-radius: 10px;
+    color: white;
+    font-size: 20px;
+    padding: 10px;
 }
