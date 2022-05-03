@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import LoadingSpinner from "./components/LoadingSpinner";
 
 function ReportDetails() {
     const { id } = useParams()

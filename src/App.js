@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { getUserId } from './common/functool';
 
 import VerifyEmail from './VerifyEmail';
-import Home from './Home';
+import ReportList from './ReportList';
 import SignIn from './SignIn';
 import ResetPassword from './ResetPassword';
 import ResentEmail from './ResentEmail';
@@ -20,7 +20,7 @@ function App() {
         <BrowserRouter>
           <Nav />
           <Routes>
-            {id && <Route path='/' exact element={<Home />} />}
+            {id && <Route path='/' exact element={<ReportList />} />}
             {id && <Route path='/report/:id' exact element={<ReportDetails />} />}
             <Route path='/' exact element={<SignIn />} />
             <Route path='/:token/verify/' exact element={<VerifyEmail />} />

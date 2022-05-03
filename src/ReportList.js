@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import api from "./api";
 import { RES_OK } from "./common/statCode";
-import "./Home.css"
+import "./ReportList.css"
 import "./App.css"
 import { ALL, PEN, APP, REJ, statusToString } from "./common/reportStat.js"
 import { Link } from "react-router-dom";
