@@ -46,14 +46,20 @@ class Api {
         return res
     }
 
+    // report api
     async getReportList(status=null) {
-        if (status) {
-            const res = await this.post('/report/list/',{status})
+        if (status !== null) {
+            const res = await this.post(`/report/list/`,{status})
             return res
         } else {
-            const res = await this.post('/report/list/')
+            const res = await this.post(`/report/list/`)
             return res
         }
+    }
+
+    async getReport(id) {
+        const res = await this.get(`/report/${id}/`)
+        return res
     }
 }
 

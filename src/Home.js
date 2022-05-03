@@ -5,23 +5,28 @@ import "./Home.css"
 import "./App.css"
 import { ALL, PEN, APP, REJ, statusToString } from "./common/reportStat.js"
 import { Link } from "react-router-dom";
+import LoadingSpinner from "./components/LoadingSpinner";
 
 function Home() {
     const [status, setStatus] = useState(ALL)
     const [reportList, setReportList] = useState([])
+    const [loading, setLoading] = useState(true)
     
     const selectStatus = async (e, status) => {
         e.preventDefault()
         setStatus(status)
+        updateReportList(status)
     }
 
-    const initReportList = async () => {
-        const res = await api.getReportList();
+    const updateReportList = async (status) => {
+        setLoading(true)
+        const res = await api.getReportList(status);
         if (res.status === RES_OK) {
             console.log(res.data.result)
             setReportList([...res.data.result])
             console.log(reportList)
         }
+        setLoading(false)
     }
 
     const ReportImage = () => {
@@ -33,11 +38,12 @@ function Home() {
     }
 
     useEffect(() => {
-        initReportList()
+        updateReportList(ALL)
     },[]);
 
     return (
         <>
+            <LoadingSpinner loading={loading}/>
             <div className="page-content-div"> 
                 <div>
                     <h1 className="content-title-div">Report List</h1>
