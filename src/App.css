@@ -61,14 +61,14 @@
     color: black;
 }
 
+.page-content-div {
+    /* text-align: center; */
+    padding: 20px;
+}
+
 .align-center-div {
     width: 100%;
     text-align: center;
-}
-
-.button:hover {
-    cursor: pointer;
-    background-color: gray;
 }
 
 @media screen and (max-width:1100px){

@@ -4,6 +4,7 @@ import { useState } from "react"
 import api from "./api"
 import { RES_BAD_REQUEST, RES_NOT_FOUND, RES_OK } from "./common/statCode"
 import FormMessage from "./components/FormMessage"
+import Button from "./components/Button"
 
 function ResentEmail() {
     const [studentId, setStudentId] = useState("")
@@ -55,7 +56,7 @@ function ResentEmail() {
                             required />
                             
                         <div className="align-center-div">
-                            <button onSubmit={resentEmail} type='submit' className='form-submit-button'>Submit</button>
+                            <Button onSubmit={resentEmail} type='submit' className='form-submit-button'>Submit</Button>
                             </div>
                     </div>
                 </form>

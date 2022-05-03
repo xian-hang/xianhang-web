@@ -6,6 +6,7 @@ import "./App.css"
 import { ALL, PEN, APP, REJ, statusToString } from "./common/reportStat.js"
 import { Link } from "react-router-dom";
 import LoadingSpinner from "./components/LoadingSpinner";
+import Button from "./components/Button";
 
 function Home() {
     const [status, setStatus] = useState(ALL)
@@ -31,7 +32,7 @@ function Home() {
 
     const ReportImage = () => {
         return (
-            <div className="report-image-div">
+            <div className="report-list-image-div">
 
             </div>
         )
@@ -51,29 +52,29 @@ function Home() {
 
                 <div className="status-list-div">
                     {/* <hr width="0" size="45" className="vertical-hr"/> */}
-                    <button
+                    <Button
                         className={status === ALL ? "status-list-button active" : "status-list-button"}
                         onClick={(e) => selectStatus(e,ALL)}>
                         All
-                    </button> 
+                    </Button> 
                     <hr width="0" size="45" className="vertical-hr"/>
-                    <button
+                    <Button
                         className={status === PEN ? "status-list-button active" : "status-list-button"}
                         onClick={(e) => selectStatus(e,PEN)}>
                         Pending
-                    </button> 
+                    </Button> 
                     <hr width="0" size="45" className="vertical-hr"/>
-                    <button
+                    <Button
                         className={status === APP ? "status-list-button active" : "status-list-button"}
                         onClick={(e) => selectStatus(e,APP)}>
                         Approved
-                    </button> 
+                    </Button> 
                     <hr width="0" size="45" className="vertical-hr"/>
-                    <button
+                    <Button
                         className={status === REJ ? "status-list-button active" : "status-list-button"}
                         onClick={(e) => selectStatus(e,REJ)}>
                         Rejected
-                    </button>
+                    </Button>
                     {/* <hr width="0" size="45" className="vertical-hr"/> */}
                 </div>
 
@@ -88,7 +89,7 @@ function Home() {
                                     </div>
                                     <div className="report-list-element-mid-col">
                                         <div className="report-user">
-                                            Reported : {item.report.username}
+                                            REPORTING : {item.report.reportingUsername}
                                         </div>
                                         <div className="report-desc">
                                             {item.report.description}

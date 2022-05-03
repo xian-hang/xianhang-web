@@ -6,16 +6,20 @@ import { setUserId } from "./common/functool"
 import FormMessage  from "./components/FormMessage"
 import { useNavigate } from 'react-router-dom'
 import { RES_OK } from "./common/statCode"
+import Button from "./components/Button"
+import LoadingSpinner from "./components/LoadingSpinner"
 
 function SignIn() {
     let navigate = useNavigate()
     const [id, setId] = useState("")
     const [password, setPassword] = useState("")
     const [err, setError] = useState(null)
+    const [loading, setLoading] = useState(false)
 
     const login = async (e) => {
         e.preventDefault()
         setError(null)
+        setLoading(true)
 
         const res = await api.login(id, password)
         console.log(res)
@@ -31,11 +35,12 @@ function SignIn() {
         } else {
             setError("Invalid admin Id or password.")
         }
-
+        setLoading(false)
     }
 
     return (
         <>
+            <LoadingSpinner loading={loading} />
             <div className="sign-in-layout">
                 <div className="sign-in-col-one">
                     <div className="sign-in-intro">
@@ -76,9 +81,9 @@ function SignIn() {
                                 required />
                             
                             <div className="align-center-div">
-                                <button className="form-submit-button" onSubmit={login}>
+                                <Button className="form-submit-button" onSubmit={login}>
                                     Submit
-                                </button>
+                                </Button>
                             </div>
                             
                         </div>

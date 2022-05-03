@@ -4,9 +4,13 @@ import { RES_NOT_FOUND } from "./common/statCode";
 class Api {
     async get(path) {
         try {
-            const res  = await axios.get(path)
+            const res = await axios.get(path)
+            res.status = res.data.code
             return res
-        } catch(err) {
+        } catch (err) {
+            if (err.message.search("404")) {
+                return {status : RES_NOT_FOUND}
+            }
             return null;
         }
     }
@@ -46,6 +50,21 @@ class Api {
         return res
     }
 
+    async getUser(id) {
+        const res = await this.get(`/user/${id}/`)
+        return res
+    }
+
+    async editUserStatus(id, status) {
+        const res = await this.post(`/user/${id}/edit/status/`, {status})
+        return res
+    }
+
+    async editUserRating(id, rating) {
+        const res = await this.post(`/user/${id}/edit/rating/`, {rating})
+        return res
+    }
+
     // report api
     async getReportList(status=null) {
         if (status !== null) {
@@ -59,6 +78,17 @@ class Api {
 
     async getReport(id) {
         const res = await this.get(`/report/${id}/`)
+        return res
+    }
+
+    async editReportStatus(id,status) {
+        const res = await this.post(`/report/${id}/edit/`, { status })
+        return res
+    }
+
+    // report notice api
+    async createReportNotice(reportId, content) {
+        const res = await this.post(`/report/notice/create/`, { reportId, content })
         return res
     }
 }

@@ -1,0 +1,101 @@
+.report-detail-container {
+    background-color: whitesmoke;
+    border-radius: 10px;
+    display: flex;
+    width: 1600px;
+    margin: auto;
+}
+
+.report-description-container {
+    background-color: whitesmoke;
+    border-radius: 10px;
+    width: 1600px;
+    min-height: 200px;
+    margin: auto;
+}
+
+.report-button-container {
+    width: 1200px;
+    margin: 15px auto;
+    display: flex;
+}
+
+.report-detail-left-col {
+    width: 470px;
+}
+
+.report-detail-right-col {
+    display: inline flex;
+    padding: 20px;
+}
+
+.report-image-div {
+    margin: 30px;
+    width: 400px;
+    height: 400px;
+    background-color: silver;
+}
+
+.report-detail-box {
+    width: 500px;
+}
+
+.report-detail-hr {
+    margin: 20px;
+}
+
+.report-description {
+    padding: 20px;
+}
+
+.report-button-col {
+    width: 50%;
+    text-align: center;
+}
+
+.report-description-text {
+    font-size: 25px;
+}
+
+.report-button {
+    width: 400px;
+    margin: 10px auto;
+    font-size: 20px;
+    padding: 10px;
+    border-style: outset;
+}
+
+.report-approve-button {
+    /* background-color: rgb(136, 231, 140);
+    color: rgb(14, 61, 14);
+    border-color: green; */
+    color: rgb(255, 255, 255);
+    background-color: rgb(25, 172, 25);
+    border-color: green;
+
+}
+
+.report-reject-button {
+    /* background-color: pink;
+    color: rgb(105, 30, 30);
+    border-color: brown; */
+    color: rgb(255, 255, 255);
+    background-color: rgb(163, 52, 52);
+    border-color: rgb(110, 28, 28);
+}
+
+.penalty-radio-selection {
+    padding: 5px;
+    font-size: 20px;
+}
+
+.report-detail-status {
+   text-align: center;
+   font-size: 100px;
+   margin: 30px;
+   font-family: 'Oleo Script', cursive;
+}
+
+.input-reason {
+    font-size: 20px;
+}
