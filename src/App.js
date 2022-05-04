@@ -24,7 +24,7 @@ function App() {
             {id && <Route path='/report/:id' exact element={<ReportDetails />} />}
             <Route path='/' exact element={<SignIn />} />
             <Route path='/:token/verify/' exact element={<VerifyEmail />} />
-            <Route path='/reset/password/' exact element={<ResetPassword />} />
+            <Route path='/:token/reset/password/' exact element={<ResetPassword />} />
             <Route path='/resent/email/' exact element={<ResentEmail />} />
             <Route path='*' exact element={<Navigate to="/" />} />
             

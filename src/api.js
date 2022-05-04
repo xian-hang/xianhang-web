@@ -55,6 +55,11 @@ class Api {
         return res
     }
 
+    async getUserWithToken(token) {
+        const res = await this.get(`/user/token/${token}/`)
+        return res
+    }
+
     async editUserStatus(id, status) {
         const res = await this.post(`/user/${id}/edit/status/`, {status})
         return res
@@ -62,6 +67,11 @@ class Api {
 
     async editUserRating(id, rating) {
         const res = await this.post(`/user/${id}/edit/rating/`, {rating})
+        return res
+    }
+
+    async resetPassword(key, newPassword) {
+        const res = await api.post(`/user/${key}/reset/password/`, { newPassword })
         return res
     }
 
