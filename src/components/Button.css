@@ -1,3 +1,4 @@
 .button-1:hover {
     cursor: pointer;
+    scale: 1.1;
 }

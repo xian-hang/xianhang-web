@@ -41,3 +41,7 @@
     font-size: 20px;
     padding: 10px;
 }
+
+.logout-button:hover {
+    background-color: gray;
+}
