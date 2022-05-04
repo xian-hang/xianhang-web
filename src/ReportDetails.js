@@ -168,10 +168,10 @@ function ReportDetails() {
     }
 
     const ReportStatus = () => {
-        if (report) {
+        if (report && (report.status === APP || report.status === REJ)) {
             return (
                 <>
-                    <div className={report.status === APP ? "report-detail-status report-app" : ( report.status === REJ ? "report-detail-status report-rej" : "") }>
+                    <div className={report.status === APP ? "report-detail-status report-app" : "report-detail-status report-rej"}>
                         {statusToString(report.status)} 
                     </div>
                 </>
