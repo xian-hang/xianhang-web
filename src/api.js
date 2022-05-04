@@ -96,6 +96,12 @@ class Api {
         return res
     }
 
+    // report image api
+    async getReportImageUrl(id) {
+        const res = await this.get(`/report/image/${id}/url/`)
+        return res
+    }
+
     // report notice api
     async createReportNotice(reportId, content) {
         const res = await this.post(`/report/notice/create/`, { reportId, content })

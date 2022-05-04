@@ -14,7 +14,7 @@ function ReportDetails() {
     const [report, setReport] = useState(null)
     const [reporting, setReporting] = useState(null)
     const [reportedBy, setReportedBy] = useState(null)
-    const [images, setImages] = useState([])
+    const [images, setImages] = useState(null)
     const [approve, setApprove] = useState(false)
     const [reject, setReject] = useState(false)
     const [submit, setSubmit] = useState(false)
@@ -22,14 +22,21 @@ function ReportDetails() {
     const [status, setStatus] = useState(null)
     const [deduct, setDeduct] = useState(null)
     const [notice, setNotice] = useState(null)
+    const [clickImage, setClickImage] = useState(false)
 
     const getReport = async () => {
+        console.log(id)
         const res = await api.getReport(id);
         if (res.status === RES_OK) {
             setReport(res.data.report)
             setReporting(res.data.reporting)
             setReportedBy(res.data.user)
-            setImages(res.data.images)
+            // setImages(res.data.image)
+
+            if (res.data.image.length) {
+                const r = await api.getReportImageUrl(res.data.image[0])
+                setImages(r.data.url)
+            }
         }
         setLoading(false)
     }
@@ -110,8 +117,8 @@ function ReportDetails() {
             return (
                 <>
                     <div className="report-detail-left-col" >
-                        <div className="report-image-div">
-
+                        <div className="report-image-div" onClick={() => setClickImage(true)}>
+                            {!loading && <img src={images} className="report-img" />}
                         </div>
                     </div>
                     <div className="report-detail-right-col" >
@@ -295,6 +302,14 @@ function ReportDetails() {
                 />
             </Dialog>
 
+            {clickImage && images &&
+                <>
+                    <div className="grey-screen">
+                    </div>
+                    <div className="report-img-popup-container" onClick={() => setClickImage(false)}>
+                        <img src={images} className="report-img-popup"/>
+                    </div>
+                </>}
 
             <div className="page-content-div">
                 <div className="report-detail-container">

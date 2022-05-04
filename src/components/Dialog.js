@@ -19,6 +19,7 @@ const Dialog = ({ children, show, setShow, confirm }) => {
     if (show) {
         return (
             <>
+                <div className="grey-screen"></div>
                 <div className="dialog-container">
                     <form className="dialog-box" onSubmit={(e) => clickConfirm(e)}>
                         <div className="dialog-content-div">
