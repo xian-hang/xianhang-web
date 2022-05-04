@@ -8,6 +8,7 @@ import Dialog from "./components/Dialog";
 import Button from "./components/Button";
 import { APP, PEN, REJ, statusToString } from "./common/reportStat";
 import { DEAC, RESTRT, userStatToString, VER } from "./common/userStat";
+import FormMessage from "./components/FormMessage";
 
 function ReportDetails() {
     const { id } = useParams()
@@ -17,12 +18,12 @@ function ReportDetails() {
     const [images, setImages] = useState(null)
     const [approve, setApprove] = useState(false)
     const [reject, setReject] = useState(false)
-    const [submit, setSubmit] = useState(false)
     const [loading, setLoading] = useState(true)
     const [status, setStatus] = useState(null)
     const [deduct, setDeduct] = useState(null)
-    const [notice, setNotice] = useState(null)
+    const [err, setErr] = useState(null)
     const [clickImage, setClickImage] = useState(false)
+    var notice = ""
 
     const getReport = async () => {
         console.log(id)
@@ -57,7 +58,6 @@ function ReportDetails() {
 
     const selectDeduction = (e) => {
         setDeduct(e.target.value)
-        console.log(deduct == 5)
     }
 
     const selectStatus = (e) => {
@@ -66,19 +66,28 @@ function ReportDetails() {
 
     const submitApprove = async () => {
         setLoading(true)
+        setErr(null)
 
-        if (deduct) {
-            const res = await api.editUserRating(reporting.id, reporting.rating-deduct)
-            console.log(res)
+        if (!parseInt(deduct) && !parseInt(status)) {
+            setErr("At least select a penaly on rating or status.")
+            setApprove(true)
+            return
         }
-
+        
+        if (parseInt(deduct)) {
+            const res = await api.editUserRating(reporting.id, reporting.rating-deduct)
+            notice += `User's rating is deducted by ${deduct}.`
+        }
         if (parseInt(status)) {
             const res = await api.editUserStatus(reporting.id, parseInt(status))
-            console.log(res)
+            notice += `User is ${userStatToString(parseInt(status)).toLowerCase()}.`
+            console.log(2)
         }
 
+        const r3 = await api.createReportNotice(report.id, notice)
         const res = await api.editReportStatus(report.id, APP)
-        console.log(res)
+        // console.log(res)
+        
         setLoading(false)
         window.location.reload(false)
     }
@@ -87,6 +96,7 @@ function ReportDetails() {
         setLoading(true)
         const res = await api.editReportStatus(report.id, REJ)
         console.log(res)
+
         const res1 = await api.createReportNotice(report.id, notice)
         console.log(res1)
         setLoading(false)
@@ -191,6 +201,7 @@ function ReportDetails() {
             <LoadingSpinner loading={loading} />
 
             <Dialog show={approve} setShow={setApprove} confirm={() => submitApprove()} >
+                <FormMessage message={err}/>
                 Please select a penalty : <br />
                     <div className="penalty-radio-selection">
                         <input
@@ -297,7 +308,7 @@ function ReportDetails() {
                     className="input-reason"
                     maxLength="150"
                     size="30"
-                    onChange={(e) => setNotice(e.target.value)}
+                    onChange={(e) => notice = e.target.value}
                     required
                 />
             </Dialog>

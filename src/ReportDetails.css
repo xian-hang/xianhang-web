@@ -40,8 +40,8 @@
 }
 
 .report-img {
-    min-width: 400px;
-    min-height: 400px;
+    width: 400px;
+    height: 400px;
 }
 
 .report-detail-box {
