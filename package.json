@@ -2,8 +2,8 @@
   "name": "xianhang-web",
   "version": "0.1.0",
   "private": true,
-  "proxy-web": "http://xianhang.herokuapp.com",
-  "proxy": "http://127.0.0.1:8000",
+  "proxy": "http://xianhang.herokuapp.com",
+  "proxy-local": "http://127.0.0.1:8000",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.1.1",
