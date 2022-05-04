@@ -11,6 +11,7 @@ import Button from "./components/Button";
 function Home() {
     const [status, setStatus] = useState(ALL)
     const [reportList, setReportList] = useState([])
+    const [images, setImages] = useState({})
     const [loading, setLoading] = useState(true)
     
     const selectStatus = async (e, status) => {
@@ -25,17 +26,22 @@ function Home() {
         if (res.status === RES_OK) {
             console.log(res.data.result)
             setReportList([...res.data.result])
-            console.log(reportList)
         }
+
+        setImages({})
+        reportList.map(async (item, index) => {
+            console.log(item.image)
+            if (item.image.length) {
+                console.log(item.image.length)
+                const res = await api.getReportImageUrl(item.image[0])
+                console.log(res)
+                let newImages = images
+                newImages[index] = res.data.url
+                setImages(newImages)
+            }
+        })
+        console.log(images)
         setLoading(false)
-    }
-
-    const ReportImage = () => {
-        return (
-            <div className="report-list-image-div">
-
-            </div>
-        )
     }
 
     useEffect(() => {
@@ -44,6 +50,8 @@ function Home() {
 
     return (
         <>
+            {images.length}
+            {images.length && <h1>loaded</h1>}
             <LoadingSpinner loading={loading}/>
             <div className="page-content-div"> 
                 <div>
@@ -85,7 +93,9 @@ function Home() {
                             <Link to={`/report/${item.report.id}`} className="report-list-link">
                                 <div className="report-list-element-div">
                                     <div className="report-list-element-left-col">
-                                        <ReportImage />
+                                        <div className="report-list-image-div">
+                                            <img src={images[index]} className="report-list-image"/>
+                                        </div>
                                     </div>
                                     <div className="report-list-element-mid-col">
                                         <div className="report-user">
