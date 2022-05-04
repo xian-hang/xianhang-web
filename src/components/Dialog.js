@@ -6,8 +6,8 @@ const Dialog = ({ children, show, setShow, confirm }) => {
     const clickConfirm = async (e) => {
         e.preventDefault() 
 
-        confirm()
         setShow(false)
+        confirm()
     }
 
     const clickCancel = async (e) => {

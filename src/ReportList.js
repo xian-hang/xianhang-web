@@ -26,20 +26,23 @@ function Home() {
         if (res.status === RES_OK) {
             console.log(res.data.result)
             setReportList([...res.data.result])
+            setImages({})
+            const r = await Promise.all(
+                res.data.result.map(async (item, index) => {
+                    console.log(index)
+                    if (item.image.length) {
+                        console.log(item.image)
+                        const res1 = await api.getReportImageUrl(item.image[0])
+                        console.log(res1)
+                        let newImages = images
+                        newImages[index] = res1.data.url
+                        setImages(newImages)
+                    }
+                })
+            )
         }
 
-        setImages({})
-        reportList.map(async (item, index) => {
-            console.log(item.image)
-            if (item.image.length) {
-                console.log(item.image.length)
-                const res = await api.getReportImageUrl(item.image[0])
-                console.log(res)
-                let newImages = images
-                newImages[index] = res.data.url
-                setImages(newImages)
-            }
-        })
+        
         console.log(images)
         setLoading(false)
     }
