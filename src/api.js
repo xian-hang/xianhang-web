@@ -1,10 +1,12 @@
 import axios from "axios";
 import { RES_NOT_FOUND } from "./common/statCode";
 
+const proxy = "http://xianhang.herokuapp.com"
+
 class Api {
     async get(path) {
         try {
-            const res = await axios.get(path)
+            const res = await axios.get(proxy + path)
             res.status = res.data.code
             return res
         } catch (err) {
@@ -17,7 +19,7 @@ class Api {
 
     async post(path, data) {
         try {
-            const res = await axios.post(path, data)
+            const res = await axios.post(proxy + path, data)
             res.status = res.data.code
             return res
         } catch (err) {
