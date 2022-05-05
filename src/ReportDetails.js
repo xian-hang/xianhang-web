@@ -167,11 +167,13 @@ function ReportDetails() {
             return (
                 <>
                     <div className="report-button-container">
-                        <div className="report-button-col">
-                        <Button className="report-button report-approve-button" onClick={() => clickApprove()}>
-                            Approve
-                        </Button>
-                        </div>
+                        {reporting &&
+                            <div className="report-button-col">
+                                <Button className="report-button report-approve-button" onClick={() => clickApprove()}>
+                                    Approve
+                                </Button>
+                            </div>
+                        }
                         
                         <div className="report-button-col">
                         <Button className="report-button report-reject-button" onClick={() => clickReject()}>
