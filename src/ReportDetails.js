@@ -69,7 +69,7 @@ function ReportDetails() {
         setErr(null)
 
         if (!parseInt(deduct) && !parseInt(status)) {
-            setErr("At least select a penaly on rating or status.")
+            setErr("At least select a penalty on rating or status.")
             setApprove(true)
             setLoading(false)
             return
