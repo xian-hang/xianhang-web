@@ -22,6 +22,7 @@ function Home() {
 
     const updateReportList = async (status) => {
         setLoading(true)
+        console.log(status)
         const res = await api.getReportList(status);
         if (res.status === RES_OK) {
             console.log(res.data.result)
