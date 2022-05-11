@@ -5,7 +5,10 @@ const proxy = ""
 const entry = window.location.protocol + '//' + window.location.hostname + ':81'
 
 const options = {
-    headers: {"content-type": "application/x-www-form-urlencoded"}
+    headers: {
+        "content-type": "application/x-www-form-urlencoded", 
+        "Access-Control-Allow-Origin": "*", 
+    }
 }
 
 class Api {
