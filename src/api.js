@@ -2,7 +2,7 @@ import axios from "axios";
 import { RES_NOT_FOUND } from "./common/statCode";
 
 const proxy = ""
-const entry = window.location.protocol + '//' + window.location.hostname + ':81'
+const entry = window.location.protocol + '//' + window.location.hostname + '/api'
 
 const options = {
     headers: {
