@@ -2,6 +2,7 @@ import axios from "axios";
 import { RES_NOT_FOUND } from "./common/statCode";
 
 const proxy = ""
+const entry = window.location.protocol + '//' + window.location.hostname + ':81'
 
 const options = {
     headers: {"content-type": "application/x-www-form-urlencoded"}
@@ -10,7 +11,7 @@ const options = {
 class Api {
     async get(path) {
         try {
-            const res = await axios.get(path, options)
+            const res = await axios.get(entry + path, options)
             res.status = res.data.code
             return res
         } catch (err) {
@@ -23,7 +24,7 @@ class Api {
 
     async post(path, data) {
         try {
-            const res = await axios.post(path, data, options)
+            const res = await axios.post(entry + path, data, options)
             res.status = res.data.code
 
             console.log(res)
