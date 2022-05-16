@@ -5,16 +5,19 @@ import api from "./api"
 import { RES_BAD_REQUEST, RES_NOT_FOUND, RES_OK } from "./common/statCode"
 import FormMessage from "./components/FormMessage"
 import Button from "./components/Button"
+import LoadingSpinner from "./components/LoadingSpinner"
 
 function ResentEmail() {
     const [studentId, setStudentId] = useState("")
     const [message, setMessage] = useState(null)
-    const [sent,setSent] = useState(false)
+    const [sent, setSent] = useState(false)
+    const [loading, setLoading] = useState(false)
 
     const resentEmail = async (e) => {
         e.preventDefault()
         setMessage(null)
         setSent(false)
+        setLoading(true)
         console.log(studentId.length)
 
         if (studentId.length === 0) {
@@ -35,10 +38,12 @@ function ResentEmail() {
         } else {
             setMessage("Oops, something went wrong...")
         }
+        setLoading(false)
     }
 
     return (
         <>
+            <LoadingSpinner loading={loading} />
             <div>
                 <form className="form" onSubmit={resentEmail}>
                     <h1>Resent Verification Email</h1>
