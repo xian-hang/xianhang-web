@@ -53,7 +53,7 @@ function ResetPassword() {
                 {user && !succ &&
                     <form className="form" onSubmit={submitReset}>
                         <h1>
-                                Resent Password for {user.studentId}
+                                Reset Password for {user.studentId}
                             </h1>
                             <hr />
 
