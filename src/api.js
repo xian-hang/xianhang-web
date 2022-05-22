@@ -1,4 +1,5 @@
 import axios from "axios";
+import { rmUserId } from "./common/functool";
 import { RES_NOT_FOUND } from "./common/statCode";
 
 const proxy = ""
@@ -15,6 +16,10 @@ class Api {
         try {
             const res = await axios.get(entry + path, options)
             res.status = res.data.code
+            if (res.data.code === 401) {
+                rmUserId()
+            }
+                
             return res
         } catch (err) {
             if (err.message.search("404")) {

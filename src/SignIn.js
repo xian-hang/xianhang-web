@@ -49,7 +49,7 @@ function SignIn() {
                         </div>
                         <hr className="sign-in-logo-hr"/>
                         <div className="sign-in-desc">
-                            E-Commerce Platform for Student in BeiHang Univeristy
+                            E-Commerce Platform for Student in BeiHang University
                         </div>
                     </div>
                 </div>
