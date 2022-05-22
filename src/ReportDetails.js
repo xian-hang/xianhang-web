@@ -39,7 +39,7 @@ function ReportDetails() {
                 setImages(r.data.url)
             }
         } else {
-            window.location.reload(False)
+            window.location.reload(false)
         }
         setLoading(false)
     }

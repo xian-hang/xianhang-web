@@ -42,7 +42,7 @@ function Home() {
                 })
             )
         } else {
-            window.location.reload(False)
+            window.location.reload(false)
         }
 
         
