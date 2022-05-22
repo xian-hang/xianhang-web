@@ -38,6 +38,8 @@ function ReportDetails() {
                 const r = await api.getReportImageUrl(res.data.image[0])
                 setImages(r.data.url)
             }
+        } else {
+            window.location.reload(False)
         }
         setLoading(false)
     }

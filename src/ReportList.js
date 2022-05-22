@@ -41,6 +41,8 @@ function Home() {
                     }
                 })
             )
+        } else {
+            window.location.reload(False)
         }
 
         
