@@ -33,6 +33,9 @@ class Api {
         try {
             const res = await axios.post(entry + path, data, options)
             res.status = res.data.code
+            if (res.data.code === 401) {
+                rmUserId()
+            }
 
             console.log(res)
             return res
