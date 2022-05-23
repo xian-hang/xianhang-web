@@ -82,7 +82,7 @@ function SignIn() {
                             
                             <div className="align-center-div">
                                 <Button className="form-submit-button" onSubmit={login}>
-                                    Submit
+                                    Login
                                 </Button>
                             </div>
                             
