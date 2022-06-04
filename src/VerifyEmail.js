@@ -38,7 +38,7 @@ function VerifyEmail() {
                 <>
                     <h2>Oops... Something went wrong</h2>
                     <div>
-                        Want to resent verification email ? 
+                        Want to resend verification email ? 
                         <Link to="/resent/email/">
                             Click here
                         </Link>

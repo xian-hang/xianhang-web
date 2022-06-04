@@ -46,7 +46,7 @@ function ResentEmail() {
             <LoadingSpinner loading={loading} />
             <div>
                 <form className="form" onSubmit={resentEmail}>
-                    <h1>Resent Verification Email</h1>
+                    <h1>Resend Verification Email</h1>
                     <hr />
                     <div className="form-content">
                         <FormMessage message={message} succ={sent} />
